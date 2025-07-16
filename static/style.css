@@ -1,0 +1,137 @@
+/* Base styles */
+body {
+  background: #1e1e2f;
+  font-family: 'Inter', sans-serif;
+  color: #e0e0e0;
+  margin: 0;
+  padding: 20px;
+}
+
+.container {
+  max-width: 700px;
+  width: 100%;
+  margin: auto;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+h1 {
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 25px;
+  font-size: 1.8rem;
+}
+
+label {
+  display: block;
+  margin-top: 16px;
+  font-weight: 600;
+}
+
+textarea, select, input[type="range"] {
+  width: 100%;
+  margin-top: 6px;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  background: #2c2f4a;
+  color: #ffffff;
+  font-size: 1rem;
+  box-sizing: border-box;
+  resize: vertical;
+}
+
+textarea {
+  min-height: 120px;
+}
+
+output {
+  display: inline-block;
+  margin-left: 10px;
+  font-weight: bold;
+  color: #8f94fb;
+}
+
+button {
+  margin-top: 25px;
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, #8f94fb 0%, #4e54c8 100%);
+  border: none;
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(143, 148, 251, 0.4);
+}
+
+.result {
+  margin-top: 30px;
+}
+
+.audio-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+  background: #2b2b3d;
+  padding: 12px 15px;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.audio-wrapper audio {
+  flex: 1 1 200px;
+  min-width: 180px;
+}
+
+.download-link {
+  text-decoration: none;
+  color: #8f94fb;
+  font-weight: 600;
+  transition: opacity 0.2s ease;
+}
+
+.download-link:hover {
+  opacity: 0.8;
+}
+
+.emoji {
+  font-size: 1.3rem;
+  margin-right: 8px;
+}
+
+/* 🔸 Mobile tweaks */
+@media (max-width: 500px) {
+  body {
+    padding: 10px;
+  }
+
+  .container {
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .audio-wrapper {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .download-link {
+    text-align: center;
+  }
+}

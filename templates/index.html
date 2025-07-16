@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Text to AI Voice</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h1>🗣️ AI Voice Generator</h1>
+    <form method="POST">
+      <label for="text">Enter Text:</label>
+      <textarea name="text" rows="4" required>{{ values.text }}</textarea>
+
+      <label for="speaker">Select Voice:</label>
+      <select name="speaker">
+        {% for speaker in speakers %}
+          <option value="{{ speaker }}" {% if values.speaker == speaker %}selected{% endif %}>{{ speaker }}</option>
+        {% endfor %}
+      </select>
+
+      <label for="speed">Speed (0.5x to 1.5x):</label>
+      <input type="range" name="speed" min="0.5" max="1.5" step="0.1"
+             value="{{ values.speed }}" oninput="this.nextElementSibling.value = this.value">
+      <output>{{ values.speed }}</output>
+
+      <label for="pitch">Pitch (-5 to +5 semitones):</label>
+      <input type="range" name="pitch" min="-5" max="5" step="1"
+             value="{{ values.pitch }}" oninput="this.nextElementSibling.value = this.value">
+      <output>{{ values.pitch }}</output>
+
+      <button type="submit">🎤 Generate Voice</button>
+    </form>
+
+    {% if audio_file %}
+    <div class="result">
+      <h3><span class="emoji">✅</span> Voice Ready:</h3>
+      <div class="audio-wrapper">
+        <audio controls>
+          <source src="/download/{{ audio_file }}" type="audio/wav">
+          Your browser does not support audio playback.
+        </audio>
+        <a class="download-link" href="/download/{{ audio_file }}" download>⬇️ Download Audio</a>
+      </div>
+    </div>
+    {% endif %}
+  </div>
+</body>
+</html>
