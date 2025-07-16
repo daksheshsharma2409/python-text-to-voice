@@ -54,3 +54,10 @@ text-to-voice/
 **Made with ❤️ by Dakshesh Sharma**  
 [GitHub Profile](https://github.com/daksheshsharma2409)
 
+---
+
+## 📄 License
+
+This project is licensed under the [MIT License](LICENSE).
+
+
